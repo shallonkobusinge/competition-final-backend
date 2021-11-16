@@ -1,0 +1,26 @@
+###
+POST http://localhost:2000/api/users
+Content-Type: application/json
+
+{
+    "fullNames":"Shallon Kobusinge",
+    "email":"shallon@gmail.com",
+    "nationalId":"1230304930292029",
+    "gender":"FEMALE",
+    "password":"testing@123"
+    
+
+}
+
+# ###
+# GET http://localhost:2000/api/users
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTkzNjVhZTFiYWZmYjAyZTQ1MGExMWUiLCJuYW1lcyI6IlN1bmxpZ2h0IEFkbWluIiwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJUeXBlIjoiQURNSU4iLCJpYXQiOjE2MzcwNTIzNTN9.aJJX0vLheJmmjmoXnmxA0wYXDzHB7e8QG1Xw9gcsgms
+
+
+###
+POST http://localhost:2000/api/auth/login
+Content-Type: application/json
+{
+    "email": "shallon@gmail.com",
+    "password": "testing@123"
+}
