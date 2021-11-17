@@ -7,29 +7,27 @@ const AUTH_INTERCEPTOR = async (req, res, next) => {
 
     const header = req.header('Authorization');
 
-
     if (!header)
-        return res.status(404).send(ERROR_RESPONSE_MESSAGE(null, 'NO BEARER TOKEN FOUND'));
+        return res.status(404).send(ERROR_RESPONSE(null, 'Authorization Headers not provided'));
 
-    if (!(header.startsWith('Bearer ')))
-        return res.status(404).send(ERROR_RESPONSE_MESSAGE(null, 'INVALID BEARER TOKEN'));
+    if (!(header.startsWith("Bearer ")))
+        return res.status(404).send(ERROR_RESPONSE(null, 'Invalid Token Format'));
 
     const token = header.split(' ')[1];
     console.log(token);
-
     try {
         const decoded = jwt.verify(token, SECRET_KEY);
 
+
         const user = await User.findById(decoded._id);
 
-        req.AUTH_DATA = { _id: user._id, userType: user.userType, user };
+        req.AUTH_USER = user;
 
         next();
-
     }
     catch (err) {
         console.error(err);
-        return res.status(500).send(ERROR_RESPONSE_MESSAGE(err.toString()));
+        return res.status(404).send(ERROR_RESPONSE(null, err.toString()));
     }
 }
 

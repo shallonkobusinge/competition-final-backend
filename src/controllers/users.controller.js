@@ -1,4 +1,4 @@
-const { User, validate } = require('../models/users.model');
+const { User, validate, validateUpdate } = require('../models/users.model');
 const { ERROR_RESPONSE_MESSAGE, SUCCESS_RESPONSE_MESSAGE, hashPassword } = require('../utils/functions');
 const { EUserType } = require('../enums');
 
@@ -47,9 +47,17 @@ const create = async (req, res) => {
 
 
 const update = async (req, res) => {
+    console.log(req.body)
     try {
+        const { error } = validateUpdate(req.body);
+        if (error) return res.status(400).send(ERROR_RESPONSE_MESSAGE(error.details[0].message, "VALIDATION ERROR"));
         const user = await User.findById(req.params.id);
         if (!user) return res.status(404).send(ERROR_RESPONSE_MESSAGE(null, 'NOT FOUND'));
+        // console.log(user)
+        user.fullNames = req.body.fullNames;
+        user.email = req.body.email;
+        user.nationalId = req.body.nationalId;
+        user.gender = req.body.gender;
 
         // user.d = 'dsfa';
         // user.d = 'dsfa';
@@ -57,6 +65,7 @@ const update = async (req, res) => {
         // user.d = 'dsfa';
 
         const updated = await user.save();
+        // console.log(updated)
 
         return res.status(200).send(SUCCESS_RESPONSE_MESSAGE(updated));
     } catch (err) {

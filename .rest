@@ -12,15 +12,32 @@ Content-Type: application/json
 
 }
 
-# ###
-# GET http://localhost:2000/api/users
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTkzNjVhZTFiYWZmYjAyZTQ1MGExMWUiLCJuYW1lcyI6IlN1bmxpZ2h0IEFkbWluIiwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJUeXBlIjoiQURNSU4iLCJpYXQiOjE2MzcwNTIzNTN9.aJJX0vLheJmmjmoXnmxA0wYXDzHB7e8QG1Xw9gcsgms
+###
+GET http://localhost:2000/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTk0MTBlNjJmZDZlMTE4YTQ2NmNiYTkiLCJlbWFpbCI6InNoYWxsb25AZ21haWwuY29tIiwidXNlclR5cGUiOiJBRE1JTiIsImlhdCI6MTYzNzEyNDAxNn0.M-LA8Xk_aDQAGQovlAm1tVdBjuUc0kirymclI5IVbuU
 
 
 ###
 POST http://localhost:2000/api/auth/login
 Content-Type: application/json
+
 {
     "email": "shallon@gmail.com",
     "password": "testing@123"
 }
+
+
+###
+DELETE http://localhost:2000/api/users/619410e62fd6e118a466cba9
+Content-Type: application/json
+
+# {
+#     "fullNames":"Kobz Sharon",
+#     "email":"sha@gmail.com"
+ 
+# }
+
+
+### 
+GET http://localhost:2000/api/users/619410e62fd6e118a466cba9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTk0MTBlNjJmZDZlMTE4YTQ2NmNiYTkiLCJlbWFpbCI6InNoYWxsb25AZ21haWwuY29tIiwidXNlclR5cGUiOiJBRE1JTiIsImlhdCI6MTYzNzEyNDAxNn0.M-LA8Xk_aDQAGQovlAm1tVdBjuUc0kirymclI5IVbuU

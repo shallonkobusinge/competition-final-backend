@@ -63,10 +63,25 @@ const validate = (data) => {
     }
     //   star: Joi.number().integer().min(1).max(5).required(),
     // student: {
+
     //     type: mongoose.Schema.Types.ObjectId,
     //         ref: 'Student',
     //             required: true
     // },
+
+    return Joi.validate(data, schema);
+
+}
+
+const validateUpdate = (data) => {
+    const schema = {
+        fullNames: Joi.string().min(3),
+        email: Joi.string().email(),
+        nationalId: Joi.string().min(16).max(16),
+        gender: Joi.string().valid("MALE", "FEMALE"),
+        password: Joi.string().min(5)
+    }
+
 
     return Joi.validate(data, schema);
 
@@ -86,5 +101,6 @@ const validateLogin = (data) => {
 module.exports = {
     User,
     validate,
-    validateLogin
+    validateLogin,
+    validateUpdate
 }

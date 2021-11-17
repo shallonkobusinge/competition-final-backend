@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 router.get('/api/users', [AUTH_INTERCEPTOR], getAll);
-router.get('/api/users/:id', getById);
+router.get('/api/users/:id', [AUTH_INTERCEPTOR], getById);
 router.post('/api/users', create);
 router.put('/api/users/:id', update);
 router.delete('/api/users/:id', deleter);
