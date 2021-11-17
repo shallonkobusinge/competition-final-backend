@@ -61,6 +61,12 @@ const validate = (data) => {
         gender: Joi.string().valid("MALE", "FEMALE").required(),
         password: Joi.string().min(5).required()
     }
+    //   star: Joi.number().integer().min(1).max(5).required(),
+    // student: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //         ref: 'Student',
+    //             required: true
+    // },
 
     return Joi.validate(data, schema);
 
