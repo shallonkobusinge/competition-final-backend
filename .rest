@@ -1,20 +1,38 @@
+
+
 ###
 POST http://localhost:2000/api/users
 Content-Type: application/json
 
 {
-    "fullNames":"Shallon Kobusinge",
-    "email":"shallon@gmail.com",
-    "nationalId":"1230304930292029",
-    "gender":"FEMALE",
-    "password":"testing@123"
-    
-
+    "fullNames":"Admin Test",
+    "email":"admintest@gmail.com",
+    "password":"fox@testing"
 }
+
+# ###
+# POST http://localhost:2000/api/employees
+# Content-Type: application/json
+
+# {
+#      "fullNames":"Kobusinge Shallon",
+#     "email":"shallon@gmail.com",
+# }
+
+###
+POST http://localhost:2000/api/employees
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTk0YmFlMWEwYmIzNzJjN2MyODJjOWYiLCJlbWFpbCI6ImFkbWludGVzdEBnbWFpbC5jb20iLCJ1c2VyVHlwZSI6IkFETUlOIiwiaWF0IjoxNjM3MTQwMDYzfQ.Muggj2jDT4K_CmldjM_a5EYpqnEbLY4KPn5sdSYoqfY",
+Content-Type: application/json
+
+{
+     "fullNames":"Kobusinge Shallon",
+     "email":"shallon@gmail.com",
+}
+
 
 ###
 GET http://localhost:2000/api/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTk0MTBlNjJmZDZlMTE4YTQ2NmNiYTkiLCJlbWFpbCI6InNoYWxsb25AZ21haWwuY29tIiwidXNlclR5cGUiOiJBRE1JTiIsImlhdCI6MTYzNzEyNDAxNn0.M-LA8Xk_aDQAGQovlAm1tVdBjuUc0kirymclI5IVbuU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTk0YmFlMWEwYmIzNzJjN2MyODJjOWYiLCJlbWFpbCI6ImFkbWludGVzdEBnbWFpbC5jb20iLCJ1c2VyVHlwZSI6IkFETUlOIiwiaWF0IjoxNjM3MTM3MTUyfQ.WVeItjaMrpCjWs_HnMOGFCDP_R2EdejsfPtReqQ-fZg
 
 
 ###
@@ -23,7 +41,7 @@ Content-Type: application/json
 
 {
     "email": "shallon@gmail.com",
-    "password": "testing@123"
+    "password": "fox@testing"
 }
 
 ###
@@ -33,8 +51,6 @@ Content-Type: application/json
 {
     "fullNames":"Kobz SHaron",
     "email": "sharon@gmail.com",
-    "nationalId":"1192838495848202",
-    "gender": "FEMALE"
 }
 
 
@@ -47,3 +63,17 @@ Content-Type: application/json
 ### 
 GET http://localhost:2000/api/users/619410e62fd6e118a466cba9
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTk0MTBlNjJmZDZlMTE4YTQ2NmNiYTkiLCJlbWFpbCI6InNoYWxsb25AZ21haWwuY29tIiwidXNlclR5cGUiOiJBRE1JTiIsImlhdCI6MTYzNzEyNDAxNn0.M-LA8Xk_aDQAGQovlAm1tVdBjuUc0kirymclI5IVbuU
+
+
+###
+POST http://localhost:2000/api/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTk0YmFlMWEwYmIzNzJjN2MyODJjOWYiLCJlbWFpbCI6ImFkbWludGVzdEBnbWFpbC5jb20iLCJ1c2VyVHlwZSI6IkFETUlOIiwiaWF0IjoxNjM3MTQzNzI5fQ.ADpG090ITvgx4Oj-L6iHLN3dgdcs7kwBZ604dO7qQzo
+Content-Type: application/json
+
+{
+    "name":"Mango",
+    "quantity":10,
+    "exportation_date":"12 July 2021",
+    "expiration_date":"14 June 2021",
+    "unit_price":"1000",
+}

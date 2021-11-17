@@ -1,8 +1,13 @@
 const EUserType = {
     ADMIN: 'ADMIN',
-    NORMAL: 'NORMAL'
+    EMPLOYEE: 'EMPLOYEE'
 };
+const EProductType = {
+    EXPORTED: "EXPORTED",
+    NOT_EXPORTED: "NOT_EXPORTED"
+}
 
 module.exports = {
-    EUserType
+    EUserType,
+    EProductType
 }

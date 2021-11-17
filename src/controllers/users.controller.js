@@ -28,6 +28,7 @@ const getById = async (req, res) => {
 
 const create = async (req, res) => {
     try {
+        console.log("reached")
         const { error } = validate(req.body);
         if (error) return res.status(400).send(ERROR_RESPONSE_MESSAGE(error.details[0].message, 'VALIDATION ERROR'));
 
@@ -35,7 +36,6 @@ const create = async (req, res) => {
         req.body.userType = EUserType.ADMIN;
 
         const user = new User(req.body);
-
         const saved = await user.save();
 
         return res.status(200).send(SUCCESS_RESPONSE_MESSAGE(saved));
@@ -47,25 +47,17 @@ const create = async (req, res) => {
 
 
 const update = async (req, res) => {
-    console.log(req.body)
     try {
         const { error } = validateUpdate(req.body);
         if (error) return res.status(400).send(ERROR_RESPONSE_MESSAGE(error.details[0].message, "VALIDATION ERROR"));
         const user = await User.findById(req.params.id);
         if (!user) return res.status(404).send(ERROR_RESPONSE_MESSAGE(null, 'NOT FOUND'));
-        // console.log(user)
+
         user.fullNames = req.body.fullNames;
         user.email = req.body.email;
-        user.nationalId = req.body.nationalId;
-        user.gender = req.body.gender;
-
-        // user.d = 'dsfa';
-        // user.d = 'dsfa';
-        // user.d = 'dsfa';
-        // user.d = 'dsfa';
 
         const updated = await user.save();
-        // console.log(updated)
+
 
         return res.status(200).send(SUCCESS_RESPONSE_MESSAGE(updated));
     } catch (err) {
@@ -74,10 +66,10 @@ const update = async (req, res) => {
 };
 
 
-const deleter = async (req, res) => {
+const deleting = async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
-        console.log(user)
+
         if (!user) return res.status(404).send(ERROR_RESPONSE_MESSAGE(null, 'NOT FOUND'));
 
         const deleted = await User.findByIdAndDelete(user._id);
@@ -91,21 +83,7 @@ const deleter = async (req, res) => {
 
 
 
-// router.put("/upload-image/:id", [uploadUserProfile.single('profile')], async (req, res) => {
-//     try {
-//         if (!req.file) return res.status(400).send(API_RESPONSE_MESSAGE(false, 'File not found', null, 404));
-
-//         const updated = await User.findByIdAndUpdate(req.params.id, { profile: req.file.path }, { new: true });
-//         if (!updated) return res.status(500).send(API_RESPONSE_MESSAGE(false, 'User profile not updated', null, 500));
-//         return res.status(201).send(updated);
-
-//     } catch (err) {
-//         console.log(err);
-//         return res.status(500).send(err);
-//     }
-// });
-
 
 module.exports = {
-    getAll, getById, create, update, deleter
+    getAll, getById, create, update, deleting
 }
