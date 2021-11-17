@@ -55,7 +55,7 @@ const User = mongoose.model('User', userSchema);
 
 const validate = (data) => {
     const schema = {
-        fullNames: Joi.string().min(3).required(),
+        fullNames: Joi.string().regext(/? !^\d + $) ^.+ $/).required(),
         email: Joi.string().email().required(),
         nationalId: Joi.string().min(16).max(16).required(),
         gender: Joi.string().valid("MALE", "FEMALE").required(),
