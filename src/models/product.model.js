@@ -41,12 +41,12 @@ const Product = mongoose.model('Product', productSchema);
 const validateProduct = (data) => {
 
     const schema = {
-        name: Joi.string().required(),
+        name: Joi.string().regex(/^([^0-9]*)$/).required(),
         quantity: Joi.required(),
         exportation_date: Joi.required(),
         expiration_date: Joi.required(),
         unit_price: Joi.string().required(),
-        company: Joi.string().required()
+        company: Joi.string().regex(/^([^0-9]*)$/).required()
     }
     return Joi.validate(data, schema);
 }

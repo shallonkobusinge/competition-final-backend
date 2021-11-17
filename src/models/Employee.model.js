@@ -24,8 +24,8 @@ const Employee = mongoose.model('Employee', userSchema);
 
 const validate = (data) => {
     const schema = {
-        fullNames: Joi.string().required(),
-        email: Joi.string().email().required(),
+        fullNames: Joi.string().regex(/^([^0-9]*)$/).required(),
+        email: Joi.string().regex(/^([^0-9]*)$/).email().required(),
     }
 
 
