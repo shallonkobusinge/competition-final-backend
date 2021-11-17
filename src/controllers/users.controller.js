@@ -77,6 +77,7 @@ const update = async (req, res) => {
 const deleter = async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
+        console.log(user)
         if (!user) return res.status(404).send(ERROR_RESPONSE_MESSAGE(null, 'NOT FOUND'));
 
         const deleted = await User.findByIdAndDelete(user._id);

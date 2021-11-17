@@ -26,16 +26,22 @@ Content-Type: application/json
     "password": "testing@123"
 }
 
+###
+PUT http://localhost:2000/api/users/61948ae51acc1e448cdefca1
+Content-Type: application/json
+
+{
+    "fullNames":"Kobz SHaron",
+    "email": "sharon@gmail.com",
+    "nationalId":"1192838495848202",
+    "gender": "FEMALE"
+}
+
 
 ###
 DELETE http://localhost:2000/api/users/619410e62fd6e118a466cba9
 Content-Type: application/json
 
-# {
-#     "fullNames":"Kobz Sharon",
-#     "email":"sha@gmail.com"
- 
-# }
 
 
 ### 
