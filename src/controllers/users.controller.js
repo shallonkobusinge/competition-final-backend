@@ -91,7 +91,7 @@ const deleter = async (req, res) => {
 
 
 
-//  router.put("/upload-image/:id", [uploadUserProfile.single('profile')],  async (req, res) => {
+// router.put("/upload-image/:id", [uploadUserProfile.single('profile')], async (req, res) => {
 //     try {
 //         if (!req.file) return res.status(400).send(API_RESPONSE_MESSAGE(false, 'File not found', null, 404));
 
