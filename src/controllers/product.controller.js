@@ -1,14 +1,13 @@
 const { Product, validateProduct } = require('../models/product.model')
 const { EProductType } = require('../enums')
-
-const { ERROR_RESPONSE_MESSAGE, SUCCESS_RESPONSE_MESSAGE, hashPassword } = require('../utils/functions');
+const { ERROR_RESPONSE_MESSAGE, SUCCESS_RESPONSE_MESSAGE } = require('../utils/functions');
 const createProduct = async (req, res) => {
     console.log(req.body)
     try {
         const { error } = validateProduct(req.body)
         if (error) return res.status(400).send(ERROR_RESPONSE_MESSAGE(error.details[0].message, "VALIDATION ERROR"))
         req.body.productType = EProductType.EXPORTED;
-        const product = await new Product(req.bod6y)
+        const product = await new Product(req.body)
         const saved = await product.save()
         return res.status(200).send(SUCCESS_RESPONSE_MESSAGE(saved))
     }

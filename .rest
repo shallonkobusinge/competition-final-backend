@@ -10,14 +10,7 @@ Content-Type: application/json
     "password":"fox@testing"
 }
 
-# ###
-# POST http://localhost:2000/api/employees
-# Content-Type: application/json
 
-# {
-#      "fullNames":"Kobusinge Shallon",
-#     "email":"shallon@gmail.com",
-# }
 
 ###
 POST http://localhost:2000/api/employees
